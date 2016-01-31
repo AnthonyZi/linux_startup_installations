@@ -1,0 +1,45 @@
+## Assign more swap to an extra swap-file
+
+# create a folder for your swapfile
+mkdir ~/swap
+cd swap
+
+# create a swapfile using fallocate
+sudo fallocate -l 2G swap0
+
+# change rights for swap-file to make the swap secure
+sudo chmod 0600 swap0
+
+# format the swap0
+sudo mkswap swap0
+
+# turn the swap on
+sudo swapon swap0
+
+
+
+## Obtaining Information over swap
+
+# turn swap off
+sudo swapoff swap0
+
+# where is your swap on your system?
+cat /etc/fstab
+
+# how much swap and ram is used?
+free
+
+# monitor swap
+swapon -s
+
+
+## configure swappiness
+
+#actual swappiness-value
+sysctl vm.swappiness
+
+#assign a new swappiness-value
+sudo sysctl vm.swappiness=25
+#assign a new swappiness-value consistent
+->/etc/sysctl.conf
++ vm.swappiness=25

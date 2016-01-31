@@ -1,0 +1,11 @@
+# start a process with a certain nice-value
+nice ...
+
+# change nice value of a process: here increase nice +10 of ProcessID 2320
+renice +10 2320
+
+# change nice value of all processes belonging to a Process Group:
+renice +10 -g 2323
+
+# show Processes with their GroupID's
+ps -Aj (A for all Processes; j for the job notation)

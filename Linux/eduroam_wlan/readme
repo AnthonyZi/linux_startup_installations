@@ -1,0 +1,3 @@
+install wicd
+copy peap-mschapv2 into /etc/wicd/encryptions/templates/
+add line "peap-mschapv2" in file /etc/wicd/encryptions/templates/actives
