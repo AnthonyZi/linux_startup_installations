@@ -1,0 +1,1 @@
+xautolock -detectsleep -time 10 -locker "i3lock -d -c 001030" -notify 20 -notifier "notify-send -t 15000 -- 'locking screen in 20 seconds'" &

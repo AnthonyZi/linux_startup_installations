@@ -1,0 +1,58 @@
+#####
+01) configure sourceslist               -> vi sourceslist
+02) add_sources                         -> ./add_sources.sh
+
+
+#####
+03) apt-get update                      -> apt-get udate
+
+
+#####
+04) install sudo                        -> apt-get install sudo
+05) put user sudoers-group              -> adduser USERNAME sudo
+
+
+##### user_install_vim.sh
+06) install vim                         -> apt-get install vim
+07) configure vim                       -> USER$ cp myvim ~/.vimrc
+
+
+##### "install_graphics_drivers.sh"
+08) install xorg                        -> apt-get install xorg
+## GENERAL IDEA
+09) download graphics drivers           -> wget DRIVER
+10) install graphics drivers            -> ./DRIVERFILE
+## NVIDIA GT 430 DEBIAN JESSIE
+ a) add sources for nvidia-d.           -> ./add_backport_sources.sh
+ b) install linux headers for kernel    -> apt-get install linux-headers-`uname -r`
+ c) update repos                        -> apt-get update
+ d) download drivers                    -> apt-get install -t jessie-backports nvidia-driver
+ 
+
+##### user_install_disp_and_window_manager.sh
+11) install window-manager              -> apt-get install i3-wm
+12) install display-manager             -> apt-get install slim
+13) enable display-manager              -> systemctl enable slim
+14) start display-manager               -> systemctl start slim
+
+## further i3 installation
+ a) install i3status                    -> apt-get install i3status
+ b) install i3lock                      -> apt-get install i3lock
+ c) configure i3                        -> cp myi3 ~/.i3/config
+ d) configure i3                        -> cp myi3workspaces ~/.i3/workspaces
+ e) install xautolock                   -> apt-get install xautolock
+ f) configure autolock                  -> see user_install_disp... script
+
+
+##### user_install_standard_programms.sh
+ a) iceweasel                           -> apt-get install iceweasel
+ b) evince                              -> apt-get install evince
+ c) git                                 -> apt-get install git
+ d) g++                                 -> apt-get install g++
+ e) tree                                -> apt-get install tree
+
+
+
+##### user_wlan_setup.sh
+ a) install wicd                        -> apt-get install wicd
+ b) configure eduroam                   -> ./user_configure_eduroam.sh

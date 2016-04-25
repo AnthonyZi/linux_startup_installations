@@ -1,0 +1,10 @@
+install following manually:
+
+ADDON : Adblock Plus
+ADDON : Firebug
+ADDON : NoScript
+ADDON : VimFx
+
+install adobe flash player manually
+
+make "startpage" your standard search-engine!
