@@ -146,3 +146,12 @@ echo " [info] "
 echo " [info] make "startpage" your standard search-engine!"
 echo " [exec] sudo apt-get install meld"
 sudo apt-get install meld
+## SPOTIFY
+echo " [exec] sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886"
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+echo " [exec] echo deb http://repository.spotify.com testing non-free | sudo tee /etc/apt/sources.list.d/spotify.list"
+echo deb http://repository.spotify.com testing non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+echo " [exec] sudo apt-get update"
+sudo apt-get update
+echo " [exec] sudo apt-get install spotify-client"
+sudo apt-get install spotify-client
