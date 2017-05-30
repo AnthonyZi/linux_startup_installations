@@ -29,24 +29,9 @@ set formatoptions=qrn1
 set colorcolumn=80
 
 "remap for ESC
-ino jkl <esc>
-ino jlk <esc>
-ino kjl <esc>
-ino klj <esc>
-ino ljk <esc>
-ino lkj <esc>
-nno jkl <esc>
-nno jlk <esc>
-nno kjl <esc>
-nno klj <esc>
-nno ljk <esc>
-nno lkj <esc>
-vno jkl <esc>
-vno jlk <esc>
-vno kjl <esc>
-vno klj <esc>
-vno ljk <esc>
-vno lkj <esc>
+ino ,m <esc>
+nno ,m <esc>
+vno ,m <esc>
 
 "syntax settings
 syntax on
