@@ -40,12 +40,17 @@ sudo apt-get install git
 
 
 #### INSTALL WLAN-interface
-echo " [exec] sudo apt-get insall wicd wicd-curses"
-sudo apt-get install wicd wicd-curses
-echo " [exec] sudo cp installation_files/peap-mschapv2 /etc/wicd/encryption/templates"
-sudo cp installation_files/peap-mschapv2 /etc/wicd/encryption/templates
-echo " [exec] sudo sh -c 'echo "peap-mschapv2" >> /etc/wicd/encryption/templates/active'"
-sudo sh -c "echo "peap-mschapv2" >> /etc/wicd/encryption/templates/active"
+#echo " [exec] sudo apt-get insall wicd wicd-curses"
+#sudo apt-get install wicd wicd-curses
+#echo " [exec] sudo cp installation_files/peap-mschapv2 /etc/wicd/encryption/templates"
+#sudo cp installation_files/peap-mschapv2 /etc/wicd/encryption/templates
+#echo " [exec] sudo sh -c 'echo "peap-mschapv2" >> /etc/wicd/encryption/templates/active'"
+#sudo sh -c "echo "peap-mschapv2" >> /etc/wicd/encryption/templates/active"
+echo " [exec] sudo apt-get install network-manager-gnome"
+sudo apt-get install network-manager-gnome
+echo " [info] start network-manager with 'nm-applet' > boot this applet with every startup, e.g. in the i3-config"
+echo " [exec] ./installation_files/eduroam-linux-RAU.sh"
+./installation_files/eduroam-linux-RAU.sh
 
 
 #### INSTALL GUI --- http://erikdubois.be/how-to-install-i3-on-arch-linux/

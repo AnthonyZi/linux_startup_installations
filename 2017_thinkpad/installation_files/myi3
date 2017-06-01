@@ -157,24 +157,29 @@ bar {
 ###Volume Control with Keybindings over i3
 ###Volume +
 #bindsym Ctrl+F5 exec pactl -- set-sink-volume alsa_output.pci-0000_00_0f.0.analog-stereo +10%
-#bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym XF86AudioRaiseVolume exec amixer set Master 1%+
 ###Volume -
 #bindsym Ctrl+F4 exec pactl -- set-sink-volume alsa_output.pci-0000_00_0f.0.analog-stereo -10%
-#bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym XF86AudioLowerVolume exec amixer set Master 1%-
 
 ###Volume mute
 #bindsym XF86AudioMute exec amixer set Master toggle
 
-###logout and toggle lxde/i3
-#bindsym $mod+Ctrl+F12 exec ~/MyScripts/changewm.sh
+
+###Brighness control
+bindsym XF86MonBrightnessDown exec sudo backlight_control.py dec
+bindsym XF86MonBrightnessUp exec sudo backlight_control.py inc
 
 ###lock screen
-#bindcode 133 exec i3lock -c 001030
+bindcode 133 exec i3lock -c 001030
+
+# startup-execution
+exec --no-startup-id nm-applet
 
 ###make tinycalgui floating
 #for_window [class="Tinycal"] floating enable 
 
 #load layout configured in ~/.i3/.workspaces/startuplayout.sh
 #activate layout loading (30seconds-chance after startup)
-bindsym Ctrl+l exec ~/.i3/.workspaces/useconfig.sh
-exec --no-startup-id ~/.i3/.workspaces/startuplayout.sh
+#bindsym Ctrl+l exec ~/.i3/.workspaces/useconfig.sh
+#exec --no-startup-id ~/.i3/.workspaces/startuplayout.sh
