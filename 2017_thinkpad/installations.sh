@@ -160,3 +160,10 @@ echo " [exec] sudo apt-get update"
 sudo apt-get update
 echo " [exec] sudo apt-get install spotify-client"
 sudo apt-get install spotify-client
+
+### install batterynotifier
+cp installation_files/batterynotifier.py /usr/local/bin
+cp installation_files/.customisations.py /usr/local/bin
+
+### install backlight_control
+cp installation_files/backlight_control.py /usr/local/bin
