@@ -46,11 +46,18 @@ sudo apt-get install git
 #sudo cp installation_files/peap-mschapv2 /etc/wicd/encryption/templates
 #echo " [exec] sudo sh -c 'echo "peap-mschapv2" >> /etc/wicd/encryption/templates/active'"
 #sudo sh -c "echo "peap-mschapv2" >> /etc/wicd/encryption/templates/active"
-echo " [exec] sudo apt-get install network-manager-gnome"
-sudo apt-get install network-manager-gnome
-echo " [info] start network-manager with 'nm-applet' > boot this applet with every startup, e.g. in the i3-config"
-echo " [exec] ./installation_files/eduroam-linux-RAU.sh"
-./installation_files/eduroam-linux-RAU.sh
+#echo " [exec] sudo apt-get install network-manager-gnome"
+#sudo apt-get install network-manager-gnome
+#echo " [info] start network-manager with 'nm-applet' > boot this applet with every startup, e.g. in the i3-config"
+#echo " [exec] ./installation_files/eduroam-linux-RAU.sh"
+#./installation_files/eduroam-linux-RAU.sh
+echo " [exec] sudo apt-get install wpa_supplicant"
+sudo apt-get install wpa_supplicant
+echo " sudo apt-get install dhcpcd"
+sudo apt-get install dhcpcd
+echo " [info] create file 'wpa.conf' and start wpa_supplicant like this:"
+echo " [info]   sudo wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa.conf"
+echo " [info]   sudo dhcpcd"
 
 
 #### INSTALL GUI --- http://erikdubois.be/how-to-install-i3-on-arch-linux/
@@ -59,7 +66,7 @@ echo " [exec] sudo apt-get install xorg"
 sudo apt-get install xorg
 #xorg-server xorg-apps xorg-xinit xorg-twm xterm --noconfirm --needed
 echo ""
-echo "Install xterm"
+echo "Install lilyterm"
 echo " [exec] sudo apt-get install lilyterm"
 sudo apt-get install lilyterm
 cp installation_files/lilyterm.conf ~/.config/lilyterm/default.conf
