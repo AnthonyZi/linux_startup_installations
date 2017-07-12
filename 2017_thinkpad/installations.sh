@@ -174,3 +174,16 @@ cp installation_files/.customisations.py /usr/local/bin
 
 ### install backlight_control
 cp installation_files/backlight_control.py /usr/local/bin
+
+### performance-tools
+echo " [info] install tlp: look for 'man tlp' and '/etc/default/tlp'"
+echo " [exec] sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms"
+sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms
+echo " [exec] sudo mv /etc/default/tlp /etc/default/tlp_auto"
+sudo mv /etc/default/tlp /etc/default/tlp_auto
+echo " [exec] sudo cp installation_files/tlp_config /etc/default/tlp"
+sudo cp installation_files/tlp_config /etc/default/tlp
+echo " [info] install linux-cpupower: look for 'sudo man x86_energy_perf_policy'"
+echo " [exec] sudo apt-get install linux-cpupower"
+sudo apt-get install linux-cpupower
+
