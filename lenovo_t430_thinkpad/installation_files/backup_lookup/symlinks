@@ -1,0 +1,3 @@
+latex_dictionary            -> /home/zmann/.vim/ftplugin/latex-suite/dictionaries/dictionary
+powerbutton_systemd_mapping -> /etc/systemd/logind.conf
+zmann_bin                   -> /usr/local/zmann_bin/

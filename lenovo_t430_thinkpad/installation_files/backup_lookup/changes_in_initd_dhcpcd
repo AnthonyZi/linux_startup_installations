@@ -1,0 +1,24 @@
+    54  case "$1" in
+    55  start)
+    56          sanity
+    57          if pidofproc -p $PIDFILE $DHCPCD >/dev/null; then
+    58                  log_warning_msg "$NAME is already running"
+    59                  exit 0
+    60          fi
+    61          $DHCPCD -b
+    62          ;;
+    63  stop)
+    64          sanity
+    65          $DHCPCD -x -b
+    66          ;;
+    67  restart|force-reload)
+    68          sanity
+    69          $DHCPCD -x -b
+    70          $DHCPCD
+    71          ;;
+
+
+lines:
+61 "-b" added
+65 "-b" added
+69 "-b" added

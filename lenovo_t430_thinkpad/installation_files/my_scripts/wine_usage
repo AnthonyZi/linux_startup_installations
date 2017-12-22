@@ -1,0 +1,27 @@
+#!/bin/bash
+TEXT="create a new windows-derivate\n
+# WINEPREFIX=~/.WINE_32bit WINEARCH=win32 wine winecfg\n
+\n
+install directx-version of your choice (make sure, that 'winetricks' actually calls the programm 'winetricks')\n
+# WINEPREFIX=~/.WINE_32bit winetricks d3dx9\n
+\n
+configure wine in the windows-derivate\n
+# WINEPREFIX=~/.WINE_32bit wine winecfg\n
+\n
+(example from league of legends) if needed create an installation-directory on the linux-system to extract the installation-files\n
+# mkdir wine_programm_installer\n
+# WINEPREFIX=~/.WINE_32bit wine installer_exe.exe /extract:Z:/home/USERNAME/wine_programm_installer\n
+# cd wine_programm_installer\n
+# WINEPREFIX=~/.WINE_32bit wine ~/wine_programm_installer/vcredist_x86.exe\n
+# WINEPREFIX=~/.WINE_32bit wine msiexec /i LoL.NA.msi\n
+\n
+(example from league of legends) open the client in the windows-derivate\n
+# WINEPREFIX=~/.WINE_32bit wine \"C:/GAMEFOLDER/lol.launcher.exe\"\n
+\n
+if the client bugsplats on launch:\n
+# WINEPREFIX=~/.WINE_32bit wineserver -k\n
+\n
+open the your programm\n
+# WINEPREFIX=~/.WINE_32bit wine \"C:/GAMEFOLDER/LeagueClient.exe\""
+
+echo -e $TEXT

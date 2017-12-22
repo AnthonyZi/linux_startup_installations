@@ -1,0 +1,12 @@
+#!/bin/bash
+
+searchstring=`echo $1 | sed 's/ /.*/g'`
+echo $searchstring
+
+
+if [ "$2" == "text" ]
+then
+    find . -name "*.pdf" -exec bash -c "pdftotext '{}' - | tr '\n' ' ' | grep --with-filename --label='{}'  --color '$searchstring'" \;
+else
+    find . -name "*.pdf" -exec bash -c "pdftotext '{}' - | tr '\n' ' ' | grep --with-filename --label='{}' -l --color '$searchstring'" \;
+fi
