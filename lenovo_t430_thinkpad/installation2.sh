@@ -121,7 +121,8 @@ sudo apt-get install libpam-fprintd
 echo ""
 echo " [info] The needed lines in common-auth should now be present:"
 echo " [info] exec: grep fprint /etc/pam.d/common-auth"
-echo " [info] ? -> auth	[succes=2 default=ignore] pam_fprintd.so"
+echo " [info] ? -> auth	[success=2 default=ignore] pam_fprintd.so"
+echo " [info] recommended: auth [success=2 default=ignore] pam_fprintd.so max_tries=3 timeout=-1
 echo ""
 echo " [info] To configure your fingerprint:"
 echo " [info] exec: fprintd-enroll"
