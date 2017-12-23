@@ -1,31 +1,3 @@
-################# Manually #############
-#### INSTALL SUDO
-#echo " [exec] su root"
-#su root
-#following can be done automatically
-echo " [info] adjust /etc/apt/sources.list for debian jessie like this:
-read tmp
-cat installation_files/sources_debian_jessie
-read tmp
-echo " [exec] apt-get update"
-read tmp
-apt-get update
-echo " [exec] apt-get upgrade"
-read tmp
-apt-get upgrade
-echo " [exec] apt-get install sudo"
-read tmp
-apt-get install sudo
-echo " [exec] apt-get install usermod"
-read tmp
-apt-get install usermod
-echo ""
-echo " [info] exec: usermod -aG sudo [username] to add [username] to sudoers-group"
-read tmp
-exit
-
-
-
 ################# Automatically ##############
 
 #### INSTALL STANDARD-PROGRAMMS
@@ -55,12 +27,21 @@ sudo apt-get install checkinstall
 
 
 #### INSTALL WLAN-interface
-echo " [exec] sudo cp installation_files/network_interfaces /etc/network/interfaces"
+echo " [exec] sudo apt-get install firmware-iwlwifi"
 read tmp
-sudo cp installation_files/network_interfaces /etc/network/interfaces
-echo " [exec] sudo apt-get install wpa_supplicant"
+sudo apt-get install firmware-iwlwifi
+echo " [exec] sudo modprobe -r iwlwifi"
 read tmp
-sudo apt-get install wpa_supplicant
+sudo modprobe -r iwlwifi
+echo " [exec] sudo modprobe iwlwifi"
+read tmp
+sudo modprobe iwlwifi
+echo " set up your /etc/network/interfaces like this:"
+cat installation_files/network_interfaces
+read tmp
+echo " [exec] sudo apt-get install wpasupplicant"
+read tmp
+sudo apt-get install wpasupplicant
 echo " [exec] sudo cp installation_files/eduroam_old.pem /etc/ssl/certs/"
 read tmp
 sudo cp installation_files/eduroam_old.pem /etc/ssl/certs/
@@ -69,9 +50,9 @@ read tmp
 echo " add wpa_supplicant to start during system-startup now - look at this etc/rc.local:"
 cat installation_files/backup_lookup/etc_rc.local
 read tmp
-echo " sudo apt-get install dhcpcd"
+echo " sudo apt-get install dhcpcd5"
 read tmp
-sudo apt-get install dhcpcd
+sudo apt-get install dhcpcd5
 echo " make dhcpcd load in background, so that it does not slow down startup now - changes in initd_dhcpcd"
 cat installation_files/backup_lookup/changes_in_initd_dhcpcd
 read tmp
@@ -88,16 +69,18 @@ echo "Install lilyterm"
 echo " [exec] sudo apt-get install lilyterm"
 read tmp
 sudo apt-get install lilyterm
+sudo " [exec] mkdir -p ~/.config/lilyterm"
+mkdir -p ~/.config/lilyterm
 echo " [exec] cp installation_files/lilyterm.conf ~/.config/lilyterm/default.conf"
 read tmp
 cp installation_files/lilyterm.conf ~/.config/lilyterm/default.conf
 echo ""
 echo "Install graphics-driver"
 # For Intel-graphics-cards
-echo " [exec] sudo apt-get install xf86-video-intel"
+echo " [exec] sudo apt-get install xserver-xorg-video-intel"
 read tmp
-sudo apt-get install xf86-video-intel
-#xf86-video-intel --noconfirm --needed
+sudo apt-get install xserver-xorg-video-intel
+#(xf86-video-intel) --noconfirm --needed # xf86-video-intel predecessor
 echo " [exec] sudo apt-get install slim"
 read tmp
 sudo apt-get install slim 
@@ -108,8 +91,10 @@ echo " [exec] sudo apt-get install i3"
 read tmp
 sudo apt-get install i3
 echo " [exec] mkdir ~/.i3"
+read tmp
 mkdir ~/.i3
 echo " [exec] cp installation_files/myi3 ~/.i3/config"
+read tmp
 cp installation_files/myi3 ~/.i3/config
 echo " [exec] sudo apt-get install libnotify-bin"
 read tmp
@@ -121,6 +106,12 @@ sudo apt-get install libnotify-bin
 echo ""
 echo ""
 echo "INSTALL FINGERPRINT SENSOR"
+echo " [exec] sudo apt-get install software-properties-common"
+read tmp
+sudo apt-get install software-properties-common
+echo " [exec] sudo apt-get install dirmngr"
+read tmp
+sudo apt-get install dirmngr
 echo " [exec] sudo add-apt-repository ppa:fingerprint/fprint"
 read tmp
 sudo add-apt-repository ppa:fingerprint/fprint
@@ -167,6 +158,9 @@ sudo alsactl init
 
 #### configure touchpad (cofigurations suits)
 #### tap, double-tap, triple-tap, two-finger swipe, palm-detection
+echo " [exec] sudo mkdir -p /etc/X11/xorg.conf.d"
+read tmp
+sudo mkdir -p /etc/X11/xorg.conf.d
 echo " [exec] sudo cp installation_files/11-touchpad.conf /etc/X11/xorg.conf.d/"
 read tmp
 sudo cp installation_files/11-touchpad.conf /etc/X11/xorg.conf.d/
@@ -191,12 +185,9 @@ sudo apt-get install audacity
 echo " [exec] sudo apt-get install meld"
 read tmp
 sudo apt-get install meld
-echo " [exec] sudo apt-get install tee"
+echo " [exec] sudo apt-get install firefox-esr"
 read tmp
-sudo apt-get install tee
-echo " [exec] sudo apt-get install firefox"
-read tmp
-sudo apt-get install firefox
+sudo apt-get install firefox-esr
 echo " [info] install following manually:"
 echo " [info] "
 echo " [info] ADDON : Adblock Plus"
@@ -210,9 +201,6 @@ echo " [info] make "startpage" your standard search-engine!"
 read tmp
 ## SPOTIFY
 echo " install spotify"
-echo " [exec] sudo apt install dirmngr"
-read tmp
-sudo apt install dirmngr
 echo " [exec] sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410"
 read tmp
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410
@@ -264,16 +252,19 @@ sudo apt-get install libreoffice
 echo " [exec] sudo apt-get install android-tools-adb"
 read tmp
 sudo apt-get install android-tools-adb
+
+echo " [exec] sudo dpkg -i installation_files/logmein-hamachi_2.1.0.165-1_amd64.deb"
+sudo dpkg -i installation_files/logmein-hamachi_2.1.0.165-1_amd64.deb
 echo " [exec] sudo apt-get install logmein-hamachi"
 read tmp
 sudo apt-get install logmein-hamachi
 sleep 5
 
-echo " [exec] sudo apt-get install ntpd"
+echo " [exec] sudo apt-get install ntp"
 read tmp
-sudo apt-get install ntpd
+sudo apt-get install ntp
 echo " configure ntp like this:"
-cat installation_files/etc_ntp.conf
+cat installation_files/backup_lookup/etc_ntp.conf
 read tmp
 
 
